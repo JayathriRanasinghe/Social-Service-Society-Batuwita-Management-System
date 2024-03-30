@@ -1,9 +1,7 @@
-//member detail summary
-//financial situation
-//befits already taken and those details.
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { IMember } from './Interface';
+import { connect, ConnectedProps } from "react-redux";
+import React, { useEffect } from "react";
+import { MemberInformationAction } from "../../actions";
+import { RootState } from "../../store";
 
 interface Member {
   id: number;
@@ -14,41 +12,47 @@ interface Member {
   start_date: string;
 }
 
-const Member: React.FC<IMember> = (props) => {
-  const [members, setMembers] = useState<Member[]>([]);
+const Member: React.FC<PropsFromRedux> = (props) => {
+  const { memberDetails, getMemberDetails } = props;
 
-  // Fetch data on component mount
+  const { data, isLoading } = memberDetails ?? {};
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get<Member[]>('/api/members'); // Replace with your API endpoint
-      setMembers(response.data);
-    };
-
-    fetchData();
   }, []);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Is Board Member</th>
-          <th>Start Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {members.map((member) => (
-          <tr key={member.id}>
-            <td>{member.first_name} {member.last_name}</td>
-            <td>{member.email}</td>
-            <td>{member.is_board_member ? 'Yes' : 'No'}</td>
-            <td>{member.start_date}</td>
+    <>
+      <h1>Testing the member details</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Is Board Member</th>
+            <th>Start Date</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </>
   );
 };
 
-export default Member;
+const { allMembers } = MemberInformationAction ?? {};
+
+const mapStateToProps = (state: RootState) => {
+  const { reducerMemberDetails } = state;
+
+  const { memberDetails } = reducerMemberDetails;
+  return {
+    memberDetails,
+  };
+};
+
+const mapDispatchToProps = {
+  getMemberDetails: allMembers.get,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>;
+export default connector(Member);

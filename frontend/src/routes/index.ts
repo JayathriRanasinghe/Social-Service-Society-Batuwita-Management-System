@@ -1,1 +1,1 @@
-export {default as asyncRoute } from "./asyncRoutes";
+export * from "./asyncRoutes";

@@ -1,4 +1,10 @@
-export const InitialState = {
+import {IInitialState} from "./Interfaces"
+
+export const InitialState: IInitialState = {
+    memberDetails:{
+        data: [],
+        isLoading: false,
+    },
     member_id: "",
     name: "",
     nic: "",

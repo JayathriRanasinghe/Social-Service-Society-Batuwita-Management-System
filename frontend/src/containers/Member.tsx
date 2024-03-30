@@ -9,7 +9,7 @@ interface ICnt_Member {
 const Cnt_Member: React.FC<ICnt_Member> = () => {
   const { memberId } = useParams(); // Access route parameter named "memberId" (modify if different)
 
-  return <Member memberId={memberId} />; // Pass parameter to Member component
+  return <Member />; // Pass parameter to Member component
 };
 
 export default Cnt_Member;

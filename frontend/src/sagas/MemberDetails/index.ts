@@ -1,0 +1,1 @@
+export {default as MemberDetailsSaga} from "./MemberDetails"
