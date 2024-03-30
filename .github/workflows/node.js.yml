@@ -1,0 +1,34 @@
+name: Build React App (Subdirectory)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies (change directory)
+        run: |
+          cd frontend  # Replace with your subdirectory name
+          npm install
+
+      - name: Build (change directory)
+        run: |
+          cd frontend  # Replace with your subdirectory name
+          npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: react-app-build
+          path: my-react-app-directory/build  # Adjust path based on your build output
