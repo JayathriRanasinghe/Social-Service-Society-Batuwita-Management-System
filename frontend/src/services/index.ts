@@ -1,1 +1,1 @@
-export {default as MemberInformationService} from "./MemberDetails"
+export { default as MemberInformationService } from "./MemberDetails";

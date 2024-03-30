@@ -3,20 +3,18 @@ import { connect } from "react-redux";
 import { SiderPanel } from "../SiderPanel";
 import { PageHeader } from "../PageHeader";
 
-interface ILayout {
-   
-}
+interface ILayout {}
 
 const Dashboard: React.FC<ILayout> = (props) => {
-    return (
-        <>
-            <SiderPanel children={undefined}/>
-            <PageHeader children={undefined} />
-        </>
-    );
+  return (
+    <>
+      <SiderPanel children={undefined} />
+      <PageHeader children={undefined} />
+    </>
+  );
 };
 
 const mapStateToProps = () => {};
 const mapDispatchToProps = {};
-const connector = connect(mapStateToProps,mapDispatchToProps);
-export default connector(Dashboard)
+const connector = connect(mapStateToProps, mapDispatchToProps);
+export default connector(Dashboard);

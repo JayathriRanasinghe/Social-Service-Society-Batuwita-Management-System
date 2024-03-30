@@ -5,7 +5,6 @@ import { createBrowserHistory } from "history";
 import rootSaga from "./rootSaga";
 import rootReducer from "./rootReducer";
 
-
 export const history = createBrowserHistory();
 
 declare global {

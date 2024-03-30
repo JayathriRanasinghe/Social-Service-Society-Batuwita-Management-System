@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'; // Specify Axios response type
+import axios from "axios"; // Specify Axios response type
 
 interface Member {
   // Define the expected structure of a member object from your API response
@@ -11,30 +11,29 @@ interface Member {
 export default {
   getAllMembers: {
     get: (params: any): Promise<any> => {
-      return new Promise<{}>(async(resolve,reject)=>{
+      return new Promise<{}>(async (resolve, reject) => {
         try {
-          const {data, status} = await axios.get<any>(
-            'member-details',
-            {params}
-          );
-          resolve({data, status});
+          const { data, status } = await axios.get<any>("member-details", {
+            params,
+          });
+          resolve({ data, status });
         } catch (error) {
-          reject(error)
+          reject(error);
         }
       });
     },
   },
   getBoardMembers: {
     get: (params: any): Promise<any> => {
-      return new Promise<{}>(async(resolve,reject)=>{
+      return new Promise<{}>(async (resolve, reject) => {
         try {
-          const {data, status} = await axios.get<any>(
-            'board-member-details',
-            {params}
+          const { data, status } = await axios.get<any>(
+            "board-member-details",
+            { params }
           );
-          resolve({data, status});
+          resolve({ data, status });
         } catch (error) {
-          reject(error)
+          reject(error);
         }
       });
     },

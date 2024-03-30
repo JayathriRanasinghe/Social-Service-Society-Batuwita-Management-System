@@ -2,17 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 
 interface ILayout {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const Datapage: React.FC<ILayout> = (props) => {
-    return (
-        <>
-        </>
-    );
+  return <></>;
 };
 
 const mapStateToProps = () => {};
 const mapDispatchToProps = {};
-const connector = connect(mapStateToProps,mapDispatchToProps);
-export default connector(Datapage)
+const connector = connect(mapStateToProps, mapDispatchToProps);
+export default connector(Datapage);

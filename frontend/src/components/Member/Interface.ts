@@ -1,3 +1,3 @@
 export interface IMember {
-    memberId?: string; // Optional string prop
+  memberId?: string; // Optional string prop
 }

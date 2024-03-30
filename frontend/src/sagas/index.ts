@@ -1,6 +1,3 @@
-import { MemberDetailsSaga } from "./MemberDetails"
+import { MemberDetailsSaga } from "./MemberDetails";
 
-
-export default [
-    ...MemberDetailsSaga
-];
+export default [...MemberDetailsSaga];

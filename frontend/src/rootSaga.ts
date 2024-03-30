@@ -1,12 +1,10 @@
-import {all} from "redux-saga/effects"
-import Sagas from "./sagas"
+import { all } from "redux-saga/effects";
+import Sagas from "./sagas";
 
-let sagas = [
-    ...Sagas
-];
+let sagas = [...Sagas];
 
 function* rootSaga() {
-    yield all(sagas)
+  yield all(sagas);
 }
 
 export default rootSaga;

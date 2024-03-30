@@ -17,8 +17,7 @@ const Member: React.FC<PropsFromRedux> = (props) => {
 
   const { data, isLoading } = memberDetails ?? {};
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>

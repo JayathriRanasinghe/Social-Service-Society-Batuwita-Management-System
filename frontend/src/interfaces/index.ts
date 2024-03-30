@@ -1,1 +1,1 @@
-export * from "./IAPIAction"
+export * from "./IAPIAction";
