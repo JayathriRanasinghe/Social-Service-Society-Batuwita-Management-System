@@ -1,15 +1,22 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { connect } from "react-redux";
-import { SiderPanel } from "../SiderPanel";
-import { PageHeader } from "../PageHeader";
+import { DrawerForRole } from "../Drawer";
+import { AppBar } from "../AppBar";
 
-interface ILayout {}
+interface ILayout {
+  children: ReactNode;
+}
 
 const Dashboard: React.FC<ILayout> = (props) => {
+  const {children} = props;
   return (
     <>
-      <SiderPanel children={undefined} />
-      <PageHeader children={undefined} />
+      <AppBar />
+      <DrawerForRole />
+      <div>
+        {/* Render children components here */}
+        {children}
+      </div>
     </>
   );
 };
