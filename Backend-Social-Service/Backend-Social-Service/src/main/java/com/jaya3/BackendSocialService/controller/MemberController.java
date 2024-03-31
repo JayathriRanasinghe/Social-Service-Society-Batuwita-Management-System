@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("member")
+@CrossOrigin
 public class MemberController {
     @Autowired
     MemberService memberService;

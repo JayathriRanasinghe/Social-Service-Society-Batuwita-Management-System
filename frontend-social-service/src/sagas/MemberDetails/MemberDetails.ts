@@ -1,29 +1,30 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { MemberInformation } from "../../constants/Actions";
-import MemberDetails from "../../services/MemberDetails";
+import MemberInformationService from "../../services/MemberDetails";
 import { MemberInformationAction } from "../../actions/MemberDetails";
 
-const { allMembers } = MemberInformationAction;
+const { allMembers } = MemberInformationAction ?? {};
 
 export const MemberDetailsSaga = {
-  MemberInformation: {
+  memberInformation: {
     get: function* (action: any) {
+      console.log("In the saga....Member")
       const params = action?.payload?.data ?? {};
       try {
         const { data, status } = yield call(
-          MemberDetails.getAllMembers.get,
+          MemberInformationService.getAllMembers.get,
           params
         );
 
         if (status === 200) {
           //updating the status success
-          yield put(allMembers.success());
+          yield put(allMembers.success(data));
         } else {
           //updating the status fail
           yield put(allMembers.fail());
         }
       } catch (error) {
-        yield put(allMembers.fail());
+        yield put(allMembers.fail(error as any));
       }
     },
   },
@@ -32,6 +33,6 @@ export const MemberDetailsSaga = {
 export default [
   takeLatest(
     MemberInformation.GET_MEMBER_INFORMATION_START,
-    MemberDetailsSaga.MemberInformation.get
+    MemberDetailsSaga.memberInformation.get
   ),
 ];

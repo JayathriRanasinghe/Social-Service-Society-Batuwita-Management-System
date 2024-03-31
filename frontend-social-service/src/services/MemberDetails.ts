@@ -1,21 +1,15 @@
 import axios from "axios"; // Specify Axios response type
 
-interface Member {
-  // Define the expected structure of a member object from your API response
-  // Replace with actual properties and types
-  id: number;
-  name: string;
-  // ... other member properties
-}
-
 export default {
   getAllMembers: {
     get: (params: any): Promise<any> => {
       return new Promise<{}>(async (resolve, reject) => {
         try {
-          const { data, status } = await axios.get<any>("member-details", {
+          console.log("In the service... with link")
+          const { data, status } = await axios.get<any>("http://localhost:8080/member/all-members", {
             params,
           });
+          console.log(data,"in the service")
           resolve({ data, status });
         } catch (error) {
           reject(error);
