@@ -6,7 +6,7 @@ const {
   GET_MEMBER_INFORMATION_SUCCESS,
   GET_MEMBER_INFORMATION_FAIL,
 } = MemberInformation;
-
+console.log("Inside the action file ................. of member")
 export const MemberInformationAction: Readonly<IAPIAction> = {
   allMembers: {
     get: (data: any) => ({
