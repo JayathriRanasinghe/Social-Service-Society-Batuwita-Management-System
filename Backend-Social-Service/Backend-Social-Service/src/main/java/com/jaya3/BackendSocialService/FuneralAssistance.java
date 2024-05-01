@@ -13,8 +13,9 @@ import java.util.Date;
 public class FuneralAssistance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String receiverID;
-    private String giverID;
+    private Integer recordID;
+    private Integer receiverID;
+    private Integer giverID;
     private String forWho;
     private Integer amount;
     private Date givenDate;

@@ -15,7 +15,7 @@ public class FuneralAssistanceController {
     @Autowired
     FuneralAssistanceService funeralAssistanceService;
     @GetMapping("all-funeral-assistance")
-    public List<FuneralAssistance> getAllMembers(){
+    public List<FuneralAssistance> getAllFuneralAssistanceRecords(){
         return funeralAssistanceService.getAllFuneralAssistanceRecords();
     }
     @GetMapping("funeral-assistance/{id}")
