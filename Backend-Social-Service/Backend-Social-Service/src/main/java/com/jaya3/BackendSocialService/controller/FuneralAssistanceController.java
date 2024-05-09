@@ -39,4 +39,9 @@ public class FuneralAssistanceController {
         return funeralAssistanceService.deleteAssistanceRecord(id);
     }
 
+    @DeleteMapping("delete-all-record")
+    public String deleteAllAssistanceRecords(){
+        return funeralAssistanceService.deleteAllAssistanceRecords();
+    }
+
 }
