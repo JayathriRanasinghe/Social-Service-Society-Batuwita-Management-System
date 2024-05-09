@@ -1,6 +1,6 @@
 package com.jaya3.BackendSocialService.controller;
 
-import com.jaya3.BackendSocialService.FuneralAssistance;
+import com.jaya3.BackendSocialService.Funeral_Assistance;
 import com.jaya3.BackendSocialService.service.FuneralAssistanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +15,11 @@ public class FuneralAssistanceController {
     @Autowired
     FuneralAssistanceService funeralAssistanceService;
     @GetMapping("all-funeral-assistance")
-    public List<FuneralAssistance> getAllFuneralAssistanceRecords(){
+    public List<Funeral_Assistance> getAllFuneralAssistanceRecords(){
         return funeralAssistanceService.getAllFuneralAssistanceRecords();
     }
-    @GetMapping("funeral-assistance/{id}")
-    public Optional<FuneralAssistance> getFuneralAssistanceRecordsByID(@PathVariable Integer id){
+    @GetMapping("{id}")
+    public Optional<Funeral_Assistance> getFuneralAssistanceRecordsByID(@PathVariable Integer id){
         return funeralAssistanceService.getFuneralAssistanceRecordsByID(id);
     }
 
