@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 public class Members {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer memberId;
     private String firstName;
     private String lastName;
