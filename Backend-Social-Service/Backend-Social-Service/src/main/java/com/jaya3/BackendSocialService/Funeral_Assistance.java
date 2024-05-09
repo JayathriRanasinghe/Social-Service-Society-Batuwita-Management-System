@@ -19,4 +19,8 @@ public class Funeral_Assistance {
     private String beneficiary_name;
     private String relationship;
     private Integer assistance_amount;
+
+    public Integer getId() {
+        return assistance_id;
+    }
 }
