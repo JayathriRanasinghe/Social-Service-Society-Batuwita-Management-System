@@ -46,4 +46,9 @@ public class FuneralAssistanceService {
         funeralAssistanceDao.delete(deleteFuneralAssistance);
         return "Delete successful!";
     }
+
+    public String deleteAllAssistanceRecords() {
+        funeralAssistanceDao.deleteAll();
+        return "all funeral records are deleted!";
+    }
 }
