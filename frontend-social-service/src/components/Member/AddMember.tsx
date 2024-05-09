@@ -35,9 +35,9 @@ const AddMember: React.FC<PropsFromRedux & IMember> = (props) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: 10,
+        padding: 3,
         borderRadius: 4,
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add shadow
+        boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.1)", // Add shadow
       }}
     >
       <Typography variant="h6" gutterBottom>
@@ -46,9 +46,6 @@ const AddMember: React.FC<PropsFromRedux & IMember> = (props) => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
-            // {...register('firstName', { required: true })}
-            // error={!!errors.firstName}
-            // helperText={errors.firstName?.message || ''}
             id="firstName"
             name="firstName"
             label="First name"
