@@ -39,7 +39,7 @@ public class FuneralAssistanceController {
         return funeralAssistanceService.deleteAssistanceRecord(id);
     }
 
-    @DeleteMapping("delete-all-record")
+    @DeleteMapping("delete-all-records")
     public String deleteAllAssistanceRecords(){
         return funeralAssistanceService.deleteAllAssistanceRecords();
     }
