@@ -1,5 +1,6 @@
 package com.jaya3.BackendSocialService.service;
 
+import com.jaya3.BackendSocialService.Funeral_Assistance;
 import com.jaya3.BackendSocialService.Members;
 import com.jaya3.BackendSocialService.dao.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,28 @@ public class MemberService {
     public String addMember(Members member) {
         memberDao.save(member);
         return "Success!";
+    }
+
+    public String updateMemberRecord(Integer id, Members updatedRecord) {
+        Members memberRecord = memberDao.findById(id).get();
+        memberRecord.setFirstName(updatedRecord.getFirstName());
+        memberRecord.setLastName(updatedRecord.getLastName());
+        memberRecord.setStartDate(updatedRecord.getStartDate());
+        memberRecord.setEmail(updatedRecord.getEmail());
+        memberRecord.setContactNumber(updatedRecord.getContactNumber());
+        memberRecord.setIsBoardMember(updatedRecord.getIsBoardMember());
+        memberDao.save(updatedRecord);
+        return "Member record updated successfully";
+    }
+
+    public String deleteMemberRecord(Integer id) {
+        Members deleteMemberRecord = memberDao.findById(id).get();
+        memberDao.delete(deleteMemberRecord);
+        return "Member record deleted successfully";
+    }
+
+    public String deleteAllMemberRecords() {
+        memberDao.deleteAll();
+        return "All member records deleted successfully";
     }
 }

@@ -28,15 +28,15 @@ public class FuneralAssistanceService {
         return "Success!";
     }
 
-    public String updateAssistanceRecord(Integer id, Funeral_Assistance assistanceRecord) {
+    public String updateAssistanceRecord(Integer id, Funeral_Assistance updatedRecord) {
 
-        Funeral_Assistance updatedRecord = funeralAssistanceDao.findById(id).get();
-        updatedRecord.setMember_id(assistanceRecord.getMember_id());
-        updatedRecord.setDate_of_death(assistanceRecord.getDate_of_death());
-        updatedRecord.setBeneficiary_name(assistanceRecord.getBeneficiary_name());
-        updatedRecord.setRelationship(assistanceRecord.getRelationship());
-        updatedRecord.setAssistance_amount(assistanceRecord.getAssistance_amount());
-        funeralAssistanceDao.save(updatedRecord);
+        Funeral_Assistance assistanceRecord = funeralAssistanceDao.findById(id).get();
+        assistanceRecord.setMember_id(updatedRecord.getMember_id());
+        assistanceRecord.setDate_of_death(updatedRecord.getDate_of_death());
+        assistanceRecord.setBeneficiary_name(updatedRecord.getBeneficiary_name());
+        assistanceRecord.setRelationship(updatedRecord.getRelationship());
+        assistanceRecord.setAssistance_amount(updatedRecord.getAssistance_amount());
+        funeralAssistanceDao.save(assistanceRecord);
         return "Update successful!";
     }
 
