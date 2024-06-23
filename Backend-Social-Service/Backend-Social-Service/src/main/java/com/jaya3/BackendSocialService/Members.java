@@ -21,4 +21,33 @@ public class Members {
     private String email;
     private Integer isBoardMember;
     private Date startDate;
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Integer getIsBoardMember() {
+        return isBoardMember;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Integer getMemberId() {
+        return memberId;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
 }
