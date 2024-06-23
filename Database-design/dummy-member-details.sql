@@ -13,29 +13,52 @@ VALUES
   ('Grace', 'Robinson', '555-112-3456', 'grace.robinson@example.com', 0, '2023-01-15');
 
 -- Assign Board Member Titles (using member email for reference)
-UPDATE Board_Members bm
-INNER JOIN Members m ON bm.member_id = m.member_id
-SET bm.title = 'President'
-WHERE m.email = 'john.doe@example.com';
+INSERT INTO Board_Members (member_id, start_term, end_term, title)
+SELECT member_id, '2023-01-01', NULL, 'President'  -- John Doe (President)
+FROM Members
+WHERE email = 'john.doe@example.com'
 
-UPDATE Board_Members bm
-INNER JOIN Members m ON bm.member_id = m.member_id
-SET bm.title = 'Secretary'
-WHERE m.email = 'jane.smith@example.com';
+UNION ALL
 
-UPDATE Board_Members bm
-INNER JOIN Members m ON bm.member_id = m.member_id
-SET bm.title = 'Treasurer'
-WHERE m.email = 'mike.lee@example.com';
+SELECT member_id, '2023-01-01', NULL, 'Secretary'  -- Jane Smith (Secretary)
+FROM Members
+WHERE email = 'jane.smith@example.com'
+
+UNION ALL
+
+SELECT member_id, '2023-01-01', NULL, 'Treasurer'  -- Mike Lee (Treasurer)
+FROM Members
+WHERE email = 'mike.lee@example.com';
 
 -- Insert Financial Records (20 total, distributed among members)
+-- Payment 1 (John Doe)
 INSERT INTO Payments (member_id, payment_date, amount)
-SELECT member_id,
-       DATE_ADD(start_date, INTERVAL FLOOR(RAND() * 12) MONTH),  -- Random date within 1 year of start_date
-       ROUND(RAND() * 50 + 10, 2)  -- Random amount between $10 and $60
-FROM Members
-CROSS JOIN (
-  SELECT 1 AS dummy
-  FROM (SELECT 1 AS n UNION ALL SELECT 1) AS dummy_table  -- Generate 20 rows
-  CROSS JOIN (SELECT 1 AS n UNION ALL SELECT 1) AS dummy_table
-);
+VALUES (1, '2024-03-30', 30.00);
+
+-- Payment 2 (Jane Smith)
+INSERT INTO Payments (member_id, payment_date, amount)
+VALUES (2, '2024-02-15', 25.50);
+
+-- Payments 3-10 (Modify member_id, date, and amount)
+INSERT INTO Payments (member_id, payment_date, amount)
+VALUES (3, '2024-01-10', 18.75),  -- Mike Lee
+       (4, '2024-03-15', 42.00),  -- Alice Young
+       (5, '2024-02-25', 37.25),  -- Bob Johnson
+       (6, '2024-02-01', 21.50),  -- Charlie Brown
+       (7, '2024-04-05', 50.00),  -- David Miller
+       (8, '2024-03-20', 15.00),  -- Emily Garcia (assuming she's still a member)
+       (9, '2024-01-20', 28.00),  -- Frank Williams (assuming he's still a member)
+       (10, '2024-03-25', 60.00);  -- Grace Robinson
+
+-- Funeral Assistance 1 (Alice Young - Member ID 4)
+INSERT INTO Funeral_Assistance (member_id, date_of_death, beneficiary_name, relationship, assistance_amount)
+VALUES (4, '2024-03-10', 'Mother', 'Parent', 1500.00);
+
+-- Funeral Assistance 2 (Grace Robinson - Member ID 10)
+INSERT INTO Funeral_Assistance (member_id, date_of_death, beneficiary_name, relationship, assistance_amount)
+VALUES (10, '2024-02-20', 'Brother', 'Sibling', 1200.00);  -- Modify date_of_death and beneficiary details as needed
+
+
+
+
+
