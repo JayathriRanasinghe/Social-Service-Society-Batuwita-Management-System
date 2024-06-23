@@ -1,5 +1,6 @@
 package com.jaya3.BackendSocialService.controller;
 
+import com.jaya3.BackendSocialService.DTO.MemberDetails;
 import com.jaya3.BackendSocialService.Funeral_Assistance;
 import com.jaya3.BackendSocialService.Members;
 import com.jaya3.BackendSocialService.service.MemberService;
@@ -16,7 +17,7 @@ public class MemberController {
     @Autowired
     MemberService memberService;
     @GetMapping("all-members")
-    public List<Members> getAllMembers(){
+    public List<MemberDetails> getAllMembers(){
         return memberService.getAllMembers();
     }
     @GetMapping("member/{id}")
