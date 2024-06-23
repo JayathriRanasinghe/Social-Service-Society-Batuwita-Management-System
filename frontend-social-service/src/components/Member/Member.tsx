@@ -52,12 +52,11 @@ const Member: React.FC<PropsFromRedux & IMember> = (props) => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Member ID</StyledTableCell>
-            <StyledTableCell>First Name</StyledTableCell>
-            <StyledTableCell>Last Name</StyledTableCell>
+            <StyledTableCell>Full Name</StyledTableCell>
             <StyledTableCell>Email Address</StyledTableCell>
             <StyledTableCell>Contact number</StyledTableCell>
             <StyledTableCell>Is board member</StyledTableCell>
-            <StyledTableCell>Start date</StyledTableCell>
+            <StyledTableCell>Registered Date</StyledTableCell>
             {/* <TableCell align="right">Sale Amount</TableCell> */}
           </TableRow>
         </TableHead>
@@ -66,12 +65,11 @@ const Member: React.FC<PropsFromRedux & IMember> = (props) => {
             
             <StyledTableRow key={row.memberId}>
               <StyledTableCell>{row.memberId}</StyledTableCell>
-              <StyledTableCell>{row.firstName}</StyledTableCell>
-              <StyledTableCell>{row.lastName}</StyledTableCell>
+              <StyledTableCell>{row.fullName}</StyledTableCell>
               <StyledTableCell>{row.email}</StyledTableCell>
               <StyledTableCell>{row.contactNumber}</StyledTableCell>
-              <StyledTableCell>{row.isBoardMember}</StyledTableCell>
-              <StyledTableCell>{row.startDate}</StyledTableCell>
+              <StyledTableCell>{row.flag}</StyledTableCell>
+              <StyledTableCell>{row.date}</StyledTableCell>
               {/* <TableCell align="right">{`$${row.amount}`}</TableCell> */}
             </StyledTableRow>
           ))}
