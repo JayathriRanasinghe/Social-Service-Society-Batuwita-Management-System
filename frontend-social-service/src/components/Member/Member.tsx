@@ -35,6 +35,37 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+
+const memberData = [
+  {
+    memberId: 1234,
+    fullName: "Alice Smith",
+    email: "alice.smith@example.com",
+    contactNumber: "+1234567890",
+    flag: "Y",
+    date: "2023-07-15",
+  },
+  {
+    memberId: 5678,
+    fullName: "Bob Johnson",
+    email: "bob.johnson@example.com",
+    contactNumber: "+9876543210",
+    flag: "N",
+    date: "2024-02-01",
+  },
+  {
+    memberId: 9012,
+    fullName: "Charlie Williams",
+    email: "charlie.williams@example.com",
+    contactNumber: "+5432109876",
+    flag: "Y",
+    date: "2024-05-20",
+  },
+];
+
+
+
+
 const Member: React.FC<PropsFromRedux & IMember> = (props) => {
   const { memberDetails, getMemberDetails } = props;
 
@@ -61,7 +92,7 @@ const Member: React.FC<PropsFromRedux & IMember> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row: any) => (
+          {memberData.map((row: any) => (
             
             <StyledTableRow key={row.memberId}>
               <StyledTableCell>{row.memberId}</StyledTableCell>
