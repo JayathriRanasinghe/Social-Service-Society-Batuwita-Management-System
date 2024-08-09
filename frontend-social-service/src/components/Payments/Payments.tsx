@@ -35,6 +35,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const paymentsData = [
+    { memberId: 123, fullName: "John Doe", settledDate: "2024-08-09", amount: 100, collectionMethod: "Cash", collectorsName: "Alice" },
+    { memberId: 456, fullName: "Jane Smith", settledDate: "2024-08-10", amount: 200, collectionMethod: "Credit Card", collectorsName: "Bob" },
+    { memberId: 789, fullName: "Michael Johnson", settledDate: "2024-08-11", amount: 300, collectionMethod: "Bank Transfer", collectorsName: "Charlie" },
+  
+  ];
+
 const Payments: React.FC<PropsFromRedux & IPayments> = (props) => {
   const { paymentDetails, getPaymentDetails } = props;
 
@@ -61,15 +68,15 @@ const Payments: React.FC<PropsFromRedux & IPayments> = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row: any) => (
+          {paymentsData.map((row: any) => (
             
             <StyledTableRow key={row.memberId}>
               <StyledTableCell>{row.memberId}</StyledTableCell>
               <StyledTableCell>{row.fullName}</StyledTableCell>
-              <StyledTableCell>{row.email}</StyledTableCell>
-              <StyledTableCell>{row.contactNumber}</StyledTableCell>
-              <StyledTableCell>{row.flag}</StyledTableCell>
-              <StyledTableCell>{row.date}</StyledTableCell>
+              <StyledTableCell>{row.settledDate}</StyledTableCell>
+              <StyledTableCell>{row.amount}</StyledTableCell>
+              <StyledTableCell>{row.collectionMethod}</StyledTableCell>
+              <StyledTableCell>{row.collectorsName}</StyledTableCell>
               {/* <TableCell align="right">{`$${row.amount}`}</TableCell> */}
             </StyledTableRow>
           ))}

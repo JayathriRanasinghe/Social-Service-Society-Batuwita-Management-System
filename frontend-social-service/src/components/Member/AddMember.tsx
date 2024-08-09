@@ -43,7 +43,7 @@ const AddMember: React.FC<PropsFromRedux & IMember> = (props) => {
       <Typography variant="h6" gutterBottom>
         Membership
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
             id="firstName"
@@ -109,7 +109,7 @@ const AddMember: React.FC<PropsFromRedux & IMember> = (props) => {
           />
         </Grid>
       </Grid>
-      <button type="submit" style={{ backgroundColor: 'blue', color: 'white', padding: '10px 20px', borderRadius: '5px' }}
+      <button type="submit" style={{ backgroundColor: 'green', color: 'white', padding: '10px 20px', borderRadius: '5px', marginTop: '20px' }}
       >Submit</button>
     </Box>
   );
