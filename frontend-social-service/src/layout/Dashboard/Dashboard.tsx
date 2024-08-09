@@ -29,7 +29,7 @@ const Dashboard: React.FC<ILayout> = (props) => {
         navigate("/member/add-member");
         break;
       case "three":
-        navigate("/payments");
+        navigate("/payments/all-payments");
         break;
       default:
         break;
